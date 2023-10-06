@@ -3,7 +3,7 @@
 /**
  * main - Entry point
  *
- * Description: Prints all possible combinations of single-digit 
+ * Description: Prints all possible combinations of single-digit
  * numbers,separated by ", " (comma and space), in ascending order.
  *
  * Return: Always 0 (Success)
