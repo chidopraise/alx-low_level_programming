@@ -5,8 +5,7 @@
  *
  * Description: here we write functions that run our programmes
  */
-
-char _putchar()
+int _putchar()
 {
 	putchar("_putchar");
 }
