@@ -1,14 +1,13 @@
-#include <stdio.h>
+#include <main.h>
 
 /**
  * main - check code
  *
- * Return: Always (0)
- *
+ * Return: Always 0
  */
 
 int main(void)
 {
-	putchar("_putchar");
+	_putchar();
 	return (0);
 }
