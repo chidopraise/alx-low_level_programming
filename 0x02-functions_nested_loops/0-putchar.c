@@ -9,7 +9,9 @@
 
 int main(void)
 {
-	putchar("_putchar\n");
+	char *myp = "_putchar\n";
+	char p = *myp;
+	putchar(p);
 	/*_putchar();*/
 	return (0);
 }
