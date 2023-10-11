@@ -9,9 +9,12 @@
 
 int main(void)
 {
-	char *myp = "_putchar\n";
-	char p = *myp;
-	putchar(p);
+	char *p = "_putchar\n";
+	for(int i = 0; i <= 9; i++)
+	{
+		putchar(p[i]);
+	}
+
 	/*_putchar();*/
 	return (0);
 }
