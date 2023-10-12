@@ -1,4 +1,18 @@
 /**
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+
+int _putchar(char c)
+{
+	/* Your implementation of _putchar goes here */
+	return 0;
+}
+
+/**
  * print_sign - Prints the sign of a number.
  * @n: The number to check.
  *
