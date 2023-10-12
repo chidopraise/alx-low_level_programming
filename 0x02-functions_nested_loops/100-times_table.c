@@ -8,15 +8,16 @@
 
 void print_times_table(int n)
 {
+	int row;
+	int column;
+	int result;
+
 	if (n > 15 || n < 0)
 	{
 		return; /*Do not print anything for invalid values of n*/
 	}
 
-	int column;
-	int result;
-
-	for (int row = 0; row <= n; row++)
+	for (row = 0; row <= n; row++)
 	{
 		for (column = 0; column <= n; column++)
 		{
