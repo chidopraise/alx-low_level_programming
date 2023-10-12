@@ -10,10 +10,12 @@ void print_times_table(int n)
 {
 	if (n > 15 || n < 0)
 	{
-		return; // Do not print anything for invalid values of n
+		return; /*Do not print anything for invalid values of n*/
 	}
 
-	int row, column, result;
+	int row;
+	int column;
+	int result;
 
 	for (row = 0; row <= n; row++)
 	{
@@ -32,8 +34,10 @@ void print_times_table(int n)
 			}
 			else if (result < 100)
 			{
-				printf("%d", result);
+				printf("  ");
 			}
-			printf("\n");
+			printf("%d", result);
 		}
+		printf("\n");
+	}
 }
