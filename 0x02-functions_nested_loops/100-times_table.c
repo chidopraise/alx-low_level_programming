@@ -13,11 +13,10 @@ void print_times_table(int n)
 		return; /*Do not print anything for invalid values of n*/
 	}
 
-	int row;
 	int column;
 	int result;
 
-	for (row = 0; row <= n; row++)
+	for (int row = 0; row <= n; row++)
 	{
 		for (column = 0; column <= n; column++)
 		{
