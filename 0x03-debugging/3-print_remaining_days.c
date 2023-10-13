@@ -36,3 +36,4 @@ void print_remaining_days(int month, int day, int year)
 	printf("Day of the year: %d\n", day_of_year);
 	printf("Remaining days: %d\n", is_leap_year ? 366 - day_of_year : 365 - day_of_year);
 }
+
