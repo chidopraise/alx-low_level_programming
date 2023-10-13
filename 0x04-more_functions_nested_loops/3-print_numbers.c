@@ -11,9 +11,9 @@ void print_numbers(void)
 
 	while (number <= 9)
 	{
-		_putchar(number + '0');
+		printf(number + '0');
 		number++;
 	}
 
-	_putchar('\n');
+	printf('\n');
 }
