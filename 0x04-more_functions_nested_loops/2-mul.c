@@ -4,13 +4,14 @@
 /**
  * This function multiplies two integers
  *
- * Return: Always 0
+ * Return: Always the multiplied value
  */
 
 int mul(int a,int b)
 {
 	int i;
-	i = a * b;
 
-	return (i);
+	i = a * b;/*the two values are matched together*/
+
+	return (i);/*returns the result of the multiplied integers*/
 }
