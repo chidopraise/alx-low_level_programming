@@ -4,7 +4,8 @@
 /**
  * largest_prime_factor - Finds the largest
  * prime factor of a number
- * @n: The number to find the largest prime factor of
+ * @n: The number to find the largest
+ * prime factor of a number
  *
  * Return: The largest prime factor
  */
@@ -23,7 +24,7 @@ long largest_prime_factor(long n)
 			factor++;
 		}
 	}
-	return factor;
+	return (factor);
 }
 
 int main(void)
