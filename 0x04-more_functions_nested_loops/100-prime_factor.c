@@ -13,6 +13,7 @@
 long largest_prime_factor(long n)
 {
 	long factor = 2;
+
 	while (n > factor)
 	{
 		if (n % factor == 0)
@@ -24,6 +25,7 @@ long largest_prime_factor(long n)
 			factor++;
 		}
 	}
+
 	return (factor);
 }
 
@@ -33,5 +35,6 @@ int main(void)
 	long largest = largest_prime_factor(number);
 
 	printf("%ld\n", largest);
+
 	return (0);
 }
