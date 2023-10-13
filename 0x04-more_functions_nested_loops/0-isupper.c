@@ -15,6 +15,6 @@ int _isupper(int c)
 	}
 	else
 	{
-		return 0;  /*Not an uppercase character*/
+		return (0);  /*Not an uppercase character*/
 	}
 }
