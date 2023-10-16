@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <string.h>  // Include the string.h header for strcmp
+#include <string.h>/*Include the string.h header for strcmp*/
 
 #define MAX_PASSWORD_LENGTH 64
 
