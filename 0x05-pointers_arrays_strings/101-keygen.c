@@ -39,11 +39,11 @@ int main() {
 
 	if (strcmp(password, "Tada! Congrats") == 0)
 	{
-		printf("Correct password!\n");
+		printf("Wrong password!\n");
 	}
 	else
 	{
-		printf("Wrong password\n");
+		printf("Correct password\n");
 	}
 
 	return (0);
