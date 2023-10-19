@@ -43,11 +43,11 @@ void print_buffer(char *b, int size)
 			{
 				if (b[i + j] >= 32 && b[i + j] <= 126)
 				{
-					putchar(b[i + j]);
+					_putchar(b[i + j]);
 				}
 				else
 				{
-					putchar('.');
+					_putchar('.');
 				}
 			}
 		}
