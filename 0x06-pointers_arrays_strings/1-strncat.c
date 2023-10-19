@@ -1,5 +1,6 @@
 /**
- * _strncat - Concatenates two strings, using at most n bytes from src
+ * _strncat - Concatenates two strings,
+ * using at most n bytes from src
  * @dest: The destination string
  * @src: The source string to be appended
  * @n: The maximum number of bytes from src to use
@@ -17,7 +18,7 @@ char *_strncat(char *dest, char *src, int n)
 		dest_len++;
 	}
 
-	/*Append at most n bytes from the source string to the destination string*/
+	/*Append at most n bytes from the source string*/
 	for (int i = 0; i < n && src[i] != '\0'; i++)
 	{
 		dest[dest_len + i] = src[i];
