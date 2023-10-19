@@ -12,7 +12,11 @@ char *cap_string(char *str) {
 	while (str[i] != '\0')
 	{
 		char current = str[i];
-		if (current == ' ' || current == '\t' || current == '\n' || current == ',' || current == ';' || current == '.' || current == '!' || current == '?' || current == '"' || current == '(' || current == ')' || current == '{' || current == '}' || i == 0)
+
+		if (current == ' ' || current == '\t' || current == '\n' || current == ',' ||
+				current == ';' || current == '.' || current == '!' ||
+				current == '?' || current == '"' || current == '(' ||
+				current == ')' || current == '{' || current == '}' || i == 0)
 		{
 			capitalize = 1;
 		}
@@ -25,6 +29,7 @@ char *cap_string(char *str) {
 		{
 			capitalize = 0;
 		}
+
 		i++;
 	}
 
