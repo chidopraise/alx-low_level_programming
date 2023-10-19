@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "main.h"
 
 /**
  * print_buffer - Prints a buffer in a specified format
@@ -12,30 +13,30 @@ void print_buffer(char *b, int size)
 
 	if (size <= 0)
 	{
-		printf("\n");
-		return;
+		_putchar("\n");
+		/*return;*/
 	}
 
 	for (i = 0; i < size; i += 10)
 	{
-		printf("%08x: ", i);
+		_putchar("%08x: ", i);
 
 		for (j = 0; j < 10; j++)
 		{
 			if (i + j < size)
 			{
-				printf("%02x", b[i + j]);
+				_putchar("%02x", b[i + j]);
 			}
 			else
 			{
-				printf("  ");
+				_putchar("  ");
 			}
 
 			if (j % 2 == 1)
-				printf(" ");
+				_putchar(" ");
 
 			if (j == 9)
-				printf(" ");
+				_putchar(" ");
 		}
 
 		for (j = 0; j < 10; j++)
@@ -44,15 +45,15 @@ void print_buffer(char *b, int size)
 			{
 				if (b[i + j] >= 32 && b[i + j] <= 126)
 				{
-					putchar(b[i + j]);
+					_putchar(b[i + j]);
 				}
 				else
 				{
-					putchar('.');
+					_putchar('.');
 				}
 			}
 		}
 
-		printf("\n");
+		_putchar("\n");
 	}
 }
