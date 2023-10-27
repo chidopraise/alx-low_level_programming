@@ -8,10 +8,11 @@
  *
  * Return: Always 0
  */
+
 int main(int argc, char *argv[])
 {
-	printf((argc - 1) + '0');
-	printf('\n');
+	_putchar((argc - 1) + '0');
+	_putchar('\n');
 
 	return (0);
 }
