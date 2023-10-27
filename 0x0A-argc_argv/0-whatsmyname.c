@@ -1,13 +1,17 @@
-#include <stdio>
+#include <stdio.h>
 #include "main.h"
 
 /**
  * main - Entry point
+ * @argc: The number of command-line arguments
+ * @argv: An array of command-line arguments
  *
  * Return: Always 0
  */
-int main(void)
+int main(int argc, char *argv[])
 {
-	_puts(__FILE__);
+	if (argc > 0) {
+		_puts(argv[0]);
+	}
 	return (0);
 }
