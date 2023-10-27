@@ -11,7 +11,7 @@
 int main(int argc, char *argv[])
 {
 	if (argc > 0) {
-		_puts(argv[0]);
+		_putchar(argv[0]);
 	}
 	return (0);
 }
