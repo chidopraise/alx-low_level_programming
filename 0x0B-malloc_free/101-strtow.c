@@ -47,11 +47,11 @@ int count_words(char *str)
  */
 char **strtow(char *str)
 {
-	if (str == NULL || *str == '\0')
-		return (NULL);
-
 	int i, j, len = 0, in_word = 0, word_count;
 	char **words;
+
+	if (str == NULL || *str == '\0')
+		return (NULL);
 
 	word_count = count_words(str);
 	words = malloc(sizeof(char *) * (word_count + 1));
