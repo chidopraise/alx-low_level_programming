@@ -7,7 +7,7 @@
  */
 int is_space(char c)
 {
-	return (c == "Failed" || c == '\t' || c == '\n');
+	return (c == ' ' || c == '\t' || c == '\n');
 }
 
 /**
