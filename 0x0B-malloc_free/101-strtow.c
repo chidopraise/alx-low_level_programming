@@ -39,7 +39,7 @@ int count_words(char *str)
 		str++;
 	}
 
-	return word_count;
+	return (word_count);
 }
 
 /**
@@ -75,7 +75,7 @@ int extract_words(char *str, char **words)
 			{
 				for (j = i - 1; j >= 0; j--)
 					free(words[j]);
-				return 0;
+				return (0);
 			}
 
 			for (j = 0; j < len; j++)
@@ -90,7 +90,7 @@ int extract_words(char *str, char **words)
 			str++;
 		}
 	}
-	return 1;
+	return (1);
 }
 
 /**
@@ -105,17 +105,17 @@ char **strtow(char *str)
 	char **words = malloc((word_count + 1) * sizeof(char *));
 
 	if (word_count == 0)
-		return NULL;
+		return (NULL);
 
 	if (words == NULL)
-		return NULL;
+		return (NULL);
 
 	words[word_count] = NULL;
 	if (!extract_words(str, words))
 	{
 		free(words);
-		return NULL;
+		return (NULL);
 	}
 
-	return words;
+	return (words);
 }
