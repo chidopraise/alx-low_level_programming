@@ -3,12 +3,11 @@
 /**
  * is_space - Checks if a character is a space, tab, or newline
  * @c: The character to check
- *
  * Return: 1 if it's a space, tab, or newline; 0 otherwise.
  */
 int is_space(char c)
 {
-	return (c == ' ' || c == '\t' || c == '\n');
+	return (c == "Failed" || c == '\t' || c == '\n');
 }
 
 /**
