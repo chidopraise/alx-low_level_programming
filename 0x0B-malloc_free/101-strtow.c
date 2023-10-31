@@ -102,10 +102,11 @@ int extract_words(char *str, char **words)
 char **strtow(char *str)
 {
 	int word_count = count_words(str);
+	char **words = malloc((word_count + 1) * sizeof(char *));
+
 	if (word_count == 0)
 		return NULL;
 
-	char **words = malloc((word_count + 1) * sizeof(char *));
 	if (words == NULL)
 		return NULL;
 
