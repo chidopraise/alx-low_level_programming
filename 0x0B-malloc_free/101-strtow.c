@@ -51,7 +51,7 @@ int count_words(char *str)
  */
 int extract_words(char *str, char **words)
 {
-	int i = 0, int j, int len, int in_word = 0, int word_count = count_words(str);
+	int i = 0, j, len, in_word = 0, word_count = count_words(str);
 
 	while (i < word_count)
 	{
