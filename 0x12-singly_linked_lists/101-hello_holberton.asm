@@ -9,10 +9,8 @@ section .text
 
 main:
 	mov rdi, hello
-	mov rax, 0
 	call printf
 
 	; Exit the program
-	mov eax, 60         ; syscall: exit
-	xor edi, edi        ; status: 0
+	mov eax, 0         ; syscall: exit
 	syscall
