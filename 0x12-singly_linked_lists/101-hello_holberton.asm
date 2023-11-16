@@ -13,6 +13,6 @@ main:
 	call printf
 
 	; Exit the program
-	mov rax, 60         ; syscall: exit
-	xor rdi, rdi        ; status: 0
+	mov eax, 60         ; syscall: exit
+	xor edi, edi        ; status: 0
 	syscall
