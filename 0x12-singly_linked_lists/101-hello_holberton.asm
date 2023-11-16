@@ -1,18 +1,18 @@
-global _start
+section .data
+	hello db 'Hello, Holberton', 0
 
 section .text
+	global _start
 
 _start:
-  mov rax, 1        ; write(
-  mov rdi, 1        ;   STDOUT_FILENO,
-  mov rsi, msg      ;   "Hello, world!\n",
-  mov rdx, msglen   ;   sizeof("Hello, world!\n")
-  syscall           ; );
+	; write the string to stdout
+	mov eax, 4            ; syscall: write
+	mov ebx, 1            ; file descriptor: stdout
+	mov ecx, hello        ; pointer to the string
+	mov edx, 17           ; length of the string
+	int 0x80              ; interrupt to invoke syscall
 
-  mov rax, 60       ; exit(
-  mov rdi, 0        ;   EXIT_SUCCESS
-  syscall           ; );
-
-section .rodata
-  msg: db "Hello, world!", 10
-  msglen: equ $ - msg
+	; exit the program
+	mov eax, 1            ; syscall: exit
+	xor ebx, ebx          ; exit code 0
+	int 0x80              ; interrupt to invoke syscall
