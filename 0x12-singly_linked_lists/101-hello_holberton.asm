@@ -2,19 +2,17 @@ section .data
 	hello db 'Hello, Holberton', 0
 
 section .text
-	global main
+	global _start
 
-	extern printf
-	section .text
+_start:
+	; write the string to stdout
+	mov eax, 4            ; syscall: write
+	mov ebx, 1            ; file descriptor: stdout
+	mov ecx, hello        ; pointer to the string
+	mov edx, 17           ; length of the string
+	int 0x80              ; interrupt to invoke syscall
 
-main:
-	sub rsp, 8             ; Align the stack
-
-	mov rdi, hello
-	call printf
-
-	add rsp, 8             ; Restore the stack
-
-	; Exit the program
-	mov eax, 0             ; syscall: exit
-	ret
+	; exit the program
+	mov eax, 1            ; syscall: exit
+	xor ebx, ebx          ; exit code 0
+	int 0x80              ; interrupt to invoke syscall
