@@ -9,7 +9,7 @@ section .text
 
 main:
 	mov rdi, hello
-	mov rax, 1
+	mov rax, 0
 	call printf
 
 	; Exit the program
