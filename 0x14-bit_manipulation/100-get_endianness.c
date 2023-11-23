@@ -3,6 +3,8 @@
 /**
  * get_endianness - Checks the endianness of the system.
  *
+ * UNION - union brings together a collection of variables.
+ *
  * Return: 0 if big endian, 1 if little endian.
  */
 int get_endianness(void)
