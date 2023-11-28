@@ -2,16 +2,7 @@
 #define MAIN_H
 
 #include <stddef.h>
-
-/**
- * struct ssize_s - Custom data type for ssize_t.
- * @value: The value of ssize_t.
- *
- */
-typedef struct ssize_s
-{
-	ssize_t value;
-} ssize_t;
+#include <sys/types.h>
 
 ssize_t read_textfile(const char *filename, size_t letters);
 
