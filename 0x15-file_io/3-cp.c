@@ -1,102 +1,86 @@
 #include <stdio.h>
-#include <fcntl.h>
-#include <unistd.h>
 #include <stdlib.h>
-#include <sys/types.h>
-#include <sys/stat.h>
+#include <unistd.h>
+#include <fcntl.h>
 
 #define BUFFER_SIZE 1024
 
-/**
- * Opens the source and destination files.
- * Exits the program with an error message if any issues occur.
- *
- * @param file_from The source file.
- * @param file_to The destination file.
- * @return The file descriptor of the source file.
- */
-int open_files(const char *file_from, const char *file_to);
+int copy_file(const char *source, const char *destination);
 
 /**
- * Copies the content from the source file to the destination file.
- * Exits the program with an error message if any issues occur during copying.
+ * main - Entry point for the file copy program.
+ * @argc: Number of command-line arguments.
+ * @argv: Array of command-line argument strings.
  *
- * @param fd_from The file descriptor of the source file.
- * @param fd_to The file descriptor of the destination file.
+ * Return: 0 on success, 97 on incorrect arguments, 98 on read error, 99 on write error, 100 on close error.
  */
-void copy_files(int fd_from, int fd_to);
-
-/**
- * Closes the source and destination files.
- * Exits the program with an error message if closing any file descriptor fails.
- *
- * @param fd_from The file descriptor of the source file.
- * @param fd_to The file descriptor of the destination file.
- */
-void close_files(int fd_from, int fd_to);
-
 int main(int argc, char *argv[])
 {
-	int fd_from, fd_to;
+	const char *file_from;
+	const char *file_to;
 
     if (argc != 3) {
-        dprintf(2, "Usage: cp file_from file_to\n");
+        dprintf(2, "Usage: %s file_from file_to\n", argv[0]);
         exit(97);
     }
 
-    fd_from = open_files(argv[1], argv[2]);
-    copy_files(fd_from, fd_to);
-    close_files(fd_from, fd_to);
+    file_from = argv[1];
+    file_to = argv[2];
+
+    if (copy_file(file_from, file_to) != 0) {
+        exit(98);
+    }
 
     return 0;
 }
 
-int open_files(const char *file_from, const char *file_to)
+/**
+ * copy_file - Copies the content of one file to another.
+ * @source: Path to the source file.
+ * @destination: Path to the destination file.
+ *
+ * Return: 0 on success, 1 on error.
+ */
+int copy_file(const char *source, const char *destination)
 {
-    int fd_from = open(file_from, O_RDONLY);
+    int fd_from = open(source, O_RDONLY);
     int fd_to;
+    char buffer[BUFFER_SIZE];
+    ssize_t bytes_read, bytes_written;
 
     if (fd_from == -1) {
-        dprintf(2, "Error: Can't read from file %s\n", file_from);
-        exit(98);
+        dprintf(2, "Error: Can't read from file %s\n", source);
+        return 1;
     }
 
-    fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
-
+    fd_to = open(destination, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
     if (fd_to == -1) {
-        dprintf(2, "Error: Can't write to %s\n", file_to);
+        dprintf(2, "Error: Can't write to file %s\n", destination);
         close(fd_from);
-        exit(99);
+        return 1;
     }
 
-    return fd_from;
-}
-
-void copy_files(int fd_from, int fd_to) {
-    ssize_t read_bytes, write_bytes;
-    char buffer[BUFFER_SIZE];
-
-    while ((read_bytes = read(fd_from, buffer, BUFFER_SIZE)) > 0) {
-        write_bytes = write(fd_to, buffer, read_bytes);
-        if (write_bytes != read_bytes) {
-            dprintf(2, "Error: Can't write to file\n");
+    while ((bytes_read = read(fd_from, buffer, BUFFER_SIZE)) > 0) {
+        bytes_written = write(fd_to, buffer, bytes_read);
+        if (bytes_written == -1) {
+            dprintf(2, "Error: Can't write to file %s\n", destination);
             close(fd_from);
             close(fd_to);
-            exit(99);
+            return 1;
         }
     }
 
-    if (read_bytes == -1) {
-        dprintf(2, "Error: Can't read from file\n");
+    if (bytes_read == -1) {
+        dprintf(2, "Error: Can't read from file %s\n", source);
         close(fd_from);
         close(fd_to);
-        exit(98);
+        return 1;
     }
-}
 
-void close_files(int fd_from, int fd_to) {
     if (close(fd_from) == -1 || close(fd_to) == -1) {
-        dprintf(2, "Error: Can't close file descriptor\n");
-        exit(100);
+        dprintf(2, "Error: Can't close fd\n");
+        return 1;
     }
+
+    return 0;
 }
