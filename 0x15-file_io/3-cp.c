@@ -35,13 +35,15 @@ void copy_files(int fd_from, int fd_to);
  */
 void close_files(int fd_from, int fd_to);
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
+	int fd_from, fd_to;
+
     if (argc != 3) {
         dprintf(2, "Usage: cp file_from file_to\n");
         exit(97);
     }
 
-    int fd_from, fd_to;
     fd_from = open_files(argv[1], argv[2]);
     copy_files(fd_from, fd_to);
     close_files(fd_from, fd_to);
@@ -49,14 +51,18 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
-int open_files(const char *file_from, const char *file_to) {
+int open_files(const char *file_from, const char *file_to)
+{
     int fd_from = open(file_from, O_RDONLY);
+    int fd_to;
+
     if (fd_from == -1) {
         dprintf(2, "Error: Can't read from file %s\n", file_from);
         exit(98);
     }
 
-    int fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+    fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+
     if (fd_to == -1) {
         dprintf(2, "Error: Can't write to %s\n", file_to);
         close(fd_from);
