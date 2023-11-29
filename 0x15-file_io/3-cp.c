@@ -7,6 +7,8 @@
 #include <stdlib.h>
 #include "main.h"
 
+#define BUFFER_SIZE 1024
+
 /**
  * create_buffer - Allocates a dynamic buffer.
  *
