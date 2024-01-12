@@ -2,13 +2,12 @@
 #include "lists.h"
 
 /**
- * add_dnodeint_end - Adds a new node
- * at the end of a dlistint_t list
+ * add_dnodeint_end - Adds a new node at
+ * the end of a doubly linked list
  * @head: Pointer to the head of the list
  * @n: Value of the new node
  *
- * Return: The address of the new element,
- * or NULL if it failed
+ * Return: The address of the new node, or NULL if it failed
  */
 dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
